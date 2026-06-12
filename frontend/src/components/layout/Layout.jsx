@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
     return (
         <div className="flex flex-col bg-bg gap-section">
             <Header navigationItems={NAVIGATION_ITEMS} activeSection={activeSection} />
-            <main className="flex flex-col gap-[20dvh] lg:gap-[10dvh]">
+            <main className="flex flex-col">
                 {children}
             </main>
         </div>

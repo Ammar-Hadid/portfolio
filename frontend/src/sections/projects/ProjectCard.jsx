@@ -15,7 +15,7 @@ const ProjectCard = ({ project }) => {
     const urlIconStyles = 'w-lg h-lg text-primary';
 
     return (
-        <article className="relative flex flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-md text-text bg-card-bg">
+        <article className="relative flex flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-xl text-text bg-card-bg">
             {wip && (
                 <p className="absolute uppercase bg-primary py-sm px-lg left-[-3%] top-[-5%] font-semibold font-display">
                     WIP
@@ -26,11 +26,11 @@ const ProjectCard = ({ project }) => {
             <div className="flex flex-col gap-lg lg:gap-xl">
                 <div className="flex flex-col gap-sm">
                     <h3 className=" text-body-lg font-display">{title}</h3>
-                    <p className="text-text-muted leading-7 font-body text-body">{description}</p>
+                    <p className="text-text-muted text-pretty leading-7 font-body text-body">{description}</p>
                 </div>
 
                 {technologies?.length > 0 && (
-                    <div className="flex gap-sm">
+                    <div className="flex gap-sm flex-wrap lg:flex-nowrap">
                         {technologies
                             .map((t, index) => <p key={index} className="p-sm lg:p-md text-body-sm rounded-pill bg-card-bg border border-text/5 font-body">{t}</p>)}
                     </div>

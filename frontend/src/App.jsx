@@ -2,6 +2,7 @@ import Layout from "./components/layout/Layout.jsx";
 import Hero from "./sections/hero/Hero.jsx";
 import Projects from "./sections/projects/Projects.jsx";
 import Skills from "./sections/skills/Skills.jsx";
+import About from "./sections/about/About.jsx";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <Skills />
       <Projects />
+      <About />
     </Layout>
   )
 }
