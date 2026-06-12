@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+    /* Color palette */
+    --color-primary-200: rgba(113, 70, 247, .2);
+    --color-primary: #7146F7;
+    --color-text: #FFFFFF;
+    --color-text-muted: rgba(255, 255, 255, .6);
+    --color-bg: #070C16;
+    --color-card-bg: rgba(255, 255, 255, .05);
+
+
+    /* Typography */
+    --font-display: "Poppins", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --text-hero: clamp(3rem, 8vw, 6rem);
+    --text-h1: clamp(2.5rem, 6vw, 4rem);
+    --text-h2: clamp(2rem, 4vw, 3rem);
+    --text-h3: clamp(1.5rem, 3vw, 2.25rem);
+    --text-h4: clamp(1.25rem, 2vw, 1.75rem);
+    --text-h5: clamp(1.125rem, 1.5vw, 1.5rem);
+
+    --text-body-sm: clamp(0.875rem, 1vw, 1rem);
+    --text-body: clamp(1rem, 1.5vw, 1.125rem);
+    --text-body-lg: clamp(1.125rem, 2vw, 1.375rem);
+
+
+    /* Spacing */
+    --spacing-2xs: 0.125rem;
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+
+    --spacing-section: clamp(3rem, 5vh, 6rem);
+    --spacing-section-l: clamp(6rem, 10vh, 12rem);
+
+
+    /* Radius */
+    --radius-card: 1.5rem;
+    --radius-pill: 999px;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--spacing-section-l);
+}
+
+.hero-img {
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 15%,
+            black 85%,
+            transparent),
+        linear-gradient(to bottom,
+            transparent,
+            black 15%,
+            black 85%,
+            transparent);
+    mask-composite: intersect;
+
+}
