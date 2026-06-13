@@ -35,6 +35,8 @@
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
     --spacing-3xl: 4rem;
+    --spacing-4xl: 5rem;
+    --spacing-5xl: 6rem;
 
     --spacing-section: clamp(3rem, 5vh, 6rem);
     --spacing-section-l: clamp(6rem, 10vh, 12rem);

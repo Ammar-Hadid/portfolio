@@ -3,6 +3,7 @@ import Hero from "./sections/hero/Hero.jsx";
 import Projects from "./sections/projects/Projects.jsx";
 import Skills from "./sections/skills/Skills.jsx";
 import About from "./sections/about/About.jsx";
+import Workflow from "./sections/workflow/Workflow.jsx";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Skills />
       <Projects />
       <About />
+      <Workflow />
     </Layout>
   )
 }

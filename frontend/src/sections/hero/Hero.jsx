@@ -7,9 +7,9 @@ import heroImage from "../../assets/images/me-hero.png";
 
 const Hero = () => {
     return (
-        <section className="flex flex-col lg:flex-row gap-xl lg:gap-0 w-full justify-between items-center bg-bg" id="hero">
+        <section className="flex flex-col md:flex-row lg:flex-row gap-xl lg:gap-0 w-full justify-between items-center bg-bg" id="hero">
             {/* Content */}
-            <div className="flex flex-col items-start gap-lg lg:pl-3xl">
+            <div className="flex flex-col items-start gap-lg md:pl-xl lg:pl-3xl">
 
                 {/* Introduction */}
                 <div className="flex flex-col justify-start gap-md lg:gap-0">
