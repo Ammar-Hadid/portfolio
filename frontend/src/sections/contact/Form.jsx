@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import DefaultButton from "../../components/defaultButton.jsx";
+import validateForm from "./utils/validateForm.js";
+import { useToast } from "../../contexts/ToastContext.jsx";
 
 const INITIAL_FORM_DATA = {
     name: '',
@@ -8,8 +10,9 @@ const INITIAL_FORM_DATA = {
     message: ''
 }
 
-const Form = ({ onSubmit = '' }) => {
+const Form = ({ onSubmit }) => {
     const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+    const { showToast } = useToast();
 
     const handleOnChange = (e) => {
         if (!e?.target) return;
@@ -24,13 +27,21 @@ const Form = ({ onSubmit = '' }) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
+
+        const error = validateForm(formData);
+
+        if (error) {
+            showToast(error, 'danger')
+            return
+        }
+
         onSubmit(formData)
     }
 
     const inputStyles = 'block w-full min-w-0 max-w-full box-border font-body text-text bg-card-bg py-md px-lg border border-text/10 rounded-md text-body outline-0 focus:border-text/25 placeholder:font-body placeholder:text-text-muted';
 
     return (
-        <form onSubmit={handleOnSubmit} className="bg-card-bg w-full min-w-0 flex flex-col gap-lg border border-text/15 rounded-2xl p-xl lg:w-auto lg:min-w-[30dvw]" >
+        <form noValidate onSubmit={handleOnSubmit} className="bg-card-bg w-full min-w-0 flex flex-col gap-lg border border-text/15 rounded-2xl p-xl lg:w-auto lg:min-w-[30dvw]" >
             <h3 className="font-body text-h3 uppercase">
                 <span className="text-text">Say </span>
                 <span className="text-primary">Hello</span>
@@ -41,7 +52,6 @@ const Form = ({ onSubmit = '' }) => {
                     type="text"
                     placeholder="Name"
                     name="name"
-                    required
                     value={formData.name}
                     onChange={handleOnChange}
                     className={`${inputStyles}`}
@@ -51,7 +61,6 @@ const Form = ({ onSubmit = '' }) => {
                     type="email"
                     placeholder="Email"
                     name="email"
-                    required
                     value={formData.email}
                     onChange={handleOnChange}
                     className={`${inputStyles}`}
@@ -62,10 +71,9 @@ const Form = ({ onSubmit = '' }) => {
                     placeholder="Message"
                     cols={1}
                     rows={6}
-                    required
                     value={formData.message}
                     onChange={handleOnChange}
-                    className={`${inputStyles} textarea-no-x-scroll resize-none appearance-none overflow-y-auto`}
+                    className={`${inputStyles} resize-none appearance-none overflow-x-hidden overflow-y-auto whitespace-pre-wrap wrap-break-words`}
                 />
             </div>
 

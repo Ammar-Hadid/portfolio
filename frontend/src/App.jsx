@@ -6,18 +6,22 @@ import About from "./sections/about/About.jsx";
 import Workflow from "./sections/workflow/Workflow.jsx";
 import Contact from "./sections/contact/Contact.jsx";
 
+import { ToastProvider } from "./contexts/ToastContext.jsx";
+
 
 function App() {
 
   return (
-    <Layout>
-      <Hero />
-      <Skills />
-      <Projects />
-      <About />
-      <Workflow />
-      <Contact />
-    </Layout>
+    <ToastProvider>
+      <Layout>
+        <Hero />
+        <Skills />
+        <Projects />
+        <About />
+        <Workflow />
+        <Contact />
+      </Layout>
+    </ToastProvider>
   )
 }
 

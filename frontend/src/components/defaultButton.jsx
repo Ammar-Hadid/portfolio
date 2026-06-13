@@ -8,7 +8,7 @@ const DefaultButton = ({ text, variant = 'primary', type = "button", onClick }) 
         <button
             type={type}
             onClick={onClick}
-            className={`${buttonStyles} text-text px-lg py-md text-body font-body cursor-pointer transition duration-150 ease-in-out hover:scale-[1.02] rounded-xl`}>
+            className={`${buttonStyles} text-text px-lg py-md text-body font-body cursor-pointer transition duration-150 ease-in-out hover:scale-[1.01] rounded-xl`}>
             {text}
         </button>
     )
