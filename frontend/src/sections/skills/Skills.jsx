@@ -24,7 +24,7 @@ const Skills = () => {
     return (
         <Container>
             <Section id="skills" className="relative">
-                <Heading subtitle={'My expertise'} title={'Skills & Technologies'} />
+                <Heading subtitle={'My expertise'} title={'Skills & Technologies'} description="Here are the technologies and tools I work with to build modern web applications" />
 
                 <div className="grid lg:grid-cols-[2fr_1fr] gap-3xl">
                     <div className="flex flex-col gap-3xl">

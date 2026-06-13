@@ -4,7 +4,7 @@ import Logo from "../../ui/Logo.jsx";
 import { FaDownload } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
 
-import SOCIAL_LINKS from "../../../constants/socialLinks.jsx";
+import SOCIAL_LINKS from "../../../constants/socialLinks.js";
 
 
 const MobileMenu = ({ navigationItems, activeSection }) => {

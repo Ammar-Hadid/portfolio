@@ -52,6 +52,17 @@ html {
     scroll-padding-top: var(--spacing-section-l);
 }
 
+.textarea-no-x-scroll {
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.textarea-no-x-scroll::-webkit-scrollbar:horizontal {
+    display: none;
+    height: 0;
+}
+
 .hero-img {
     mask-image: linear-gradient(to right,
             transparent,

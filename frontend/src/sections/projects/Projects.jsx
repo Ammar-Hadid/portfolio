@@ -11,7 +11,7 @@ const Projects = () => {
     return (
         <Container>
             <Section id="projects">
-                <Heading subtitle={'My Work'} title={'Featured Projects'} />
+                <Heading subtitle={'My Work'} title={'Featured Projects'} description="Here are some of the projects I’ve built to solve real problems and improve my development skills." />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
                     {projects.map(project => {

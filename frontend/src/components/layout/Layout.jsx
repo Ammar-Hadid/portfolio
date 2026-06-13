@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 
 import Header from "./header/Header.jsx";
-import NAVIGATION_ITEMS from "../../constants/navigation.jsx";
+import Footer from "./footer/Footer.jsx";
+import NAVIGATION_ITEMS from "../../constants/navigation.js";
+
+
 
 const Layout = ({ children }) => {
     const [activeSection, setActiveSection] = useState(null);
@@ -31,6 +34,7 @@ const Layout = ({ children }) => {
             <main className="flex flex-col">
                 {children}
             </main>
+            <Footer />
         </div>
     )
 };

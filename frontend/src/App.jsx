@@ -4,6 +4,7 @@ import Projects from "./sections/projects/Projects.jsx";
 import Skills from "./sections/skills/Skills.jsx";
 import About from "./sections/about/About.jsx";
 import Workflow from "./sections/workflow/Workflow.jsx";
+import Contact from "./sections/contact/Contact.jsx";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Projects />
       <About />
       <Workflow />
+      <Contact />
     </Layout>
   )
 }
