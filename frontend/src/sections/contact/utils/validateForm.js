@@ -1,20 +1,20 @@
 const validateForm = (formData) => {
 
     if (!formData?.name) {
-        return "Name is required.";
+        return "Please enter your name so I know who I'm talking to.";
     }
 
     if (!formData?.email) {
-        return "Email is required.";
+        return "Please provide an email address where I can reach you.";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-        return "Please enter a valid email.";
+        return "That email format doesn't look quite right. Please check for typos.";
     }
 
     if (!formData?.message) {
-        return "Message is required.";
+        return "Please type a message before sending.";
     }
 
     return null;

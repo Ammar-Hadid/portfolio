@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
                     setActiveSection(entry.target.id);
                 }
             })
-        }, { threshold: .5 });
+        }, { threshold: .2 });
 
         sections.forEach(section =>
             observer.observe(section)

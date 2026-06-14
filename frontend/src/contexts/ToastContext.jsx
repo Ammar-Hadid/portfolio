@@ -15,7 +15,7 @@ export const ToastProvider = ({ children }) => {
 
         timeoutRef.current = setTimeout(() => {
             setToast(null);
-        }, 3000);
+        }, 5000);
     }
 
     return (
