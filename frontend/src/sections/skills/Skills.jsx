@@ -1,3 +1,6 @@
+import { motion } from "motion/react";
+import { fadeup } from "../../animations/fadeup.js";
+
 import { skills } from "../../data/skills.js";
 
 

@@ -74,10 +74,13 @@ const MobileMenu = ({ navigationItems, activeSection }) => {
                         ))}
                     </div>
 
-                    <button type="button" className="flex items-center justify-between flex-1 text-text rounded-sm bg-transparent border-2 border-primary px-xl py-md text-body font-body">
+                    <a
+                        href="/documents/cv.pdg"
+                        download
+                        className="flex items-center justify-between flex-1 text-text rounded-sm bg-transparent border-2 border-primary px-xl py-md text-body font-body">
                         Download CV
                         <FaDownload className="w-md h-md " />
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

@@ -8,9 +8,16 @@ const app = express();
 
 app.use(express.json());
 
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5137'
+const allowedOrigins = ['https://ammarhadid.com', 'https://www.ammarhadid.com'];
+
 app.use(cors({
-    origin: CLIENT_URL
+    origin(requestedOrigin, callback) {
+        if (allowedOrigins.includes(requestedOrigin)) {
+            return callback(null, true);
+        }
+
+        return callback(new Error('Not allowed by CORS'), false);
+    }
 }))
 
 app.use('/api/contact', contactRouter);

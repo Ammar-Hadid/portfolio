@@ -1,8 +1,11 @@
 import { useState } from "react";
 
 import DefaultButton from "../../components/defaultButton.jsx";
-import validateForm from "./utils/validateForm.js";
+import validateForm from "./validators/validateForm.js";
 import { useToast } from "../../contexts/ToastContext.jsx";
+
+import { motion } from "motion/react";
+import { slideFromRight } from "../../animations/slideFromRight.js";
 
 const INITIAL_FORM_DATA = {
     name: '',
@@ -25,7 +28,7 @@ const Form = ({ onSubmit }) => {
         }))
     }
 
-    const handleOnSubmit = (e) => {
+    const handleOnSubmit = async (e) => {
         e.preventDefault();
 
         const error = validateForm(formData);
@@ -35,13 +38,29 @@ const Form = ({ onSubmit }) => {
             return
         }
 
-        onSubmit(formData)
+        const success = await onSubmit(formData);
+
+        if (success) {
+            setFormData(INITIAL_FORM_DATA);
+        }
     }
 
     const inputStyles = 'block w-full min-w-0 max-w-full box-border font-body text-text bg-card-bg py-md px-lg border border-text/10 rounded-md text-body outline-0 focus:border-text/25 placeholder:font-body placeholder:text-text-muted';
 
     return (
-        <form noValidate onSubmit={handleOnSubmit} className="bg-card-bg w-full min-w-0 flex flex-col gap-lg border border-text/15 rounded-2xl p-xl lg:w-auto lg:min-w-[30dvw]" >
+        <motion.form
+            variants={slideFromRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+                once: true,
+                amount: .2
+            }}
+
+            noValidate
+            onSubmit={handleOnSubmit}
+            className="bg-card-bg w-full min-w-0 flex flex-col gap-lg border border-text/15 rounded-2xl p-xl lg:w-auto lg:min-w-[30dvw]"
+        >
             <h3 className="font-body text-h3 uppercase">
                 <span className="text-text">Say </span>
                 <span className="text-primary">Hello</span>
@@ -77,8 +96,10 @@ const Form = ({ onSubmit }) => {
                 />
             </div>
 
-            <DefaultButton text={'Send'} type="submit" />
-        </form>
+            <DefaultButton type="submit" >
+                Send
+            </DefaultButton>
+        </motion.form>
     )
 }
 

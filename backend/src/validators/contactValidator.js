@@ -28,33 +28,35 @@ export const validateContact = ({
     const trimmedMessage = message.trim();
 
     if (!trimmedName) {
-        return "Name is required.";
+        return "Please enter your name so I know who I'm talking to.";
     }
 
     if (trimmedName.length > MAX_NAME_LENGTH) {
-        return "Name is too long.";
+        return "Your name is too long.";
     }
 
     if (!trimmedEmail) {
-        return "Email is required.";
+        return "Please provide an email address where I can reach you.";
     }
 
-    if (
-        !emailRegex.test(trimmedEmail) ||
-        trimmedEmail.length > MAX_EMAIL_LENGTH
-    ) {
-        return "Invalid email address.";
+    if (trimmedEmail.length > MAX_EMAIL_LENGTH) {
+        return "Email address is too long.";
+    }
+
+    if (!emailRegex.test(trimmedEmail)) {
+        return "That email format doesn't look quite right. Please check for typos.";
     }
 
     if (!trimmedMessage) {
-        return "Message is required.";
+        return "Please type a message before sending.";
     }
 
-    if (
-        trimmedMessage.length < MESSAGE_MIN_LENGTH ||
-        trimmedMessage.length > MESSAGE_MAX_LENGTH
-    ) {
-        return "Invalid message length.";
+    if (trimmedMessage.length < MESSAGE_MIN_LENGTH) {
+        return `Please write at least ${MESSAGE_MIN_LENGTH} characters.`;
+    }
+
+    if (trimmedMessage.length > MESSAGE_MAX_LENGTH) {
+        return `Your message is too long. Maximum ${MESSAGE_MAX_LENGTH} characters.`;
     }
 
     return null;

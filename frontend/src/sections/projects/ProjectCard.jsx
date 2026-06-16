@@ -1,8 +1,13 @@
 import { Radio } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
+import { motion } from "motion/react";
+import { slideFromLeft } from "../../animations/slideFromLeft";
+import { slideFromRight } from "../../animations/slideFromRight";
+import { fadeDown } from "../../animations/fadeDown.js";
 
-const ProjectCard = ({ project }) => {
+
+const ProjectCard = ({ project, index }) => {
     if (!project) return null;
 
     const { id, image, title, description, technologies, wip = false, liveUrl, githubUrl } = project;
@@ -14,8 +19,22 @@ const ProjectCard = ({ project }) => {
     const urlStyles = 'flex gap-md text-sm flex items-center hover:text-primary';
     const urlIconStyles = 'w-lg h-lg text-primary';
 
+    const variants = [slideFromLeft, fadeDown, slideFromRight];
+
     return (
-        <article className="relative flex flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-xl text-text bg-card-bg">
+        <motion.article
+            variants={variants?.[index]}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+                once: true,
+                amount: .2
+            }}
+            transition={{
+                delay: index * .15
+            }}
+            className="relative flex flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-xl text-text bg-card-bg"
+        >
             {wip && (
                 <p className="absolute uppercase bg-primary py-sm px-lg left-[-3%] top-[-5%] font-semibold font-display">
                     WIP
@@ -36,7 +55,7 @@ const ProjectCard = ({ project }) => {
                     </div>
                 )}
 
-                <div className="flex gap-lg font-body">
+                <div className="flex gap-lg font-body flex-wrap">
                     {liveUrl && (
                         <a
                             href={liveUrl}
@@ -62,7 +81,7 @@ const ProjectCard = ({ project }) => {
                         </a>)}
                 </div>
             </div>
-        </article>
+        </motion.article>
     )
 }
 

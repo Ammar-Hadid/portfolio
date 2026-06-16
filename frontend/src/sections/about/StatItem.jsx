@@ -1,3 +1,8 @@
+import { useRef } from "react";
+import { useInView } from "motion/react";
+
+import AnimatedNumber from "../../components/ui/AnimatedNumber.jsx";
+
 const StatItem = ({ stat, index }) => {
     if (!stat) return null;
 
@@ -7,10 +12,18 @@ const StatItem = ({ stat, index }) => {
 
     const borderStyles = ['border-b border-r', 'border-b', 'border-r', ''];
 
+    const item = useRef(null);
+    const inView = useInView(item, {
+        once: true
+    });
+
     return (
-        <div className={`flex flex-col gap-md items-center ${borderStyles[index]} lg:border-b-0 border-text/10 p-xl lg:p-0`}>
+        <div
+            ref={item}
+            className={`flex flex-col gap-md items-center ${borderStyles[index]} lg:border-b-0 border-text/10 p-xl lg:p-0`}
+        >
             <span className="text-primary text-h2 font-display font-medium">
-                {value}
+                <AnimatedNumber value={value} inView={inView} />
                 {suffix}
             </span>
             <span className="text-text-muted text-body-sm font-body text-center">{label}</span>

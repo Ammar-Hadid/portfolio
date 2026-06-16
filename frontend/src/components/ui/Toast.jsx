@@ -17,8 +17,8 @@ const Toast = ({ message, variant = 'default' }) => {
 
     return (
         <div className={baseClass}>
-            {variant === 'danger' && <CircleAlert className="w-xl h-xl" />}
-            {variant === 'success' && <Check className="w-xl h-xl" />}
+            {variant === 'danger' && <CircleAlert className="w-xl h-xl shrink-0" />}
+            {variant === 'success' && <Check className="w-xl h-xl shrink-0" />}
             <p>{message}</p>
         </div>
     )

@@ -1,4 +1,5 @@
 import Step from "./Step.jsx";
+import { motion } from "motion/react";
 
 const StepsWrapper = ({ steps }) => {
     if (steps?.length < 1) return null;
@@ -9,10 +10,38 @@ const StepsWrapper = ({ steps }) => {
                 return <Step key={step.id} step={step} index={index} />
             })}
 
-            <div className="absolute
-             w-px h-full lg:w-full lg:h-px
-            bg-text/25 md:bg-transparent lg:bg-text/25
-            left-[25%] lg:top-[25%] lg:left-auto" />
+            {/* Mobile pseudo line */}
+            <motion.div
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                    duration: 6,
+                    delay: .3,
+                }}
+                style={{
+                    originY: 0,
+                }}
+
+                className="absolute w-px h-full z-0 bg-text/25 md:bg-transparent left-[25%] lg:hidden"
+            />
+
+            {/* Desktop pseudo line  */}
+            <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                    duration: 2,
+                    delay: .3,
+                }}
+                style={{
+                    originX: 0,
+                }}
+
+                className="absolute z-0 lg:block lg:w-full lg:h-px  lg:bg-text/25 lg:top-[25%] lg:left-0 hidden"
+            />
+
         </div>
     )
 }

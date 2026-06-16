@@ -4,7 +4,7 @@ import { MdEmail } from "react-icons/md";
 const SOCIAL_LINKS = [
     {
         id: 'github',
-        href: "https://github.com/ElPridro",
+        href: "https://github.com/Ammar-Hadid",
         label: "GitHub profile",
         placeHolder: 'https://github.com',
         icon: FaGithub,
@@ -18,9 +18,9 @@ const SOCIAL_LINKS = [
     },
     {
         id: 'email',
-        href: "mailto:ammarhadid2005@gmail.com?subject=Portfolio Inquiry",
+        href: "mailto:hello@ammarhadid.com?subject=Portfolio Inquiry",
         label: "Send me an email",
-        placeHolder: 'ammarhadid2005@gmail.com',
+        placeHolder: 'hello@ammarhadid.com',
         icon: MdEmail,
     },
 ];

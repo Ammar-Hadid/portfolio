@@ -1,3 +1,7 @@
+import { motion } from "motion/react";
+import { fadeup } from "../../animations/fadeup.js";
+
+
 const Step = ({ step, index }) => {
     if (!step) return null;
 
@@ -10,9 +14,20 @@ const Step = ({ step, index }) => {
     const Icon = icon;
 
     return (
-        <div className="flex items-center lg:items-stretch lg:flex-col gap-lg">
+        <motion.div
+            variants={fadeup}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+                once: true,
+            }}
+            transition={{
+                delay: index * .15
+            }}
+            className="flex items-center lg:items-stretch lg:flex-col gap-lg"
+        >
 
-            <div className="flex items-center justify-center rounded-3xl p-lg lg:py-xl border border-text/15 relative z-2 bg-bg">
+            <div className="flex items-center justify-center rounded-3xl p-lg lg:py-xl border border-text/15 relative z-5 bg-bg">
                 <Icon className="w-5xl h-5xl text-primary" />
             </div>
 
@@ -21,7 +36,7 @@ const Step = ({ step, index }) => {
                 <h3 className="font-display uppercase text-h5 text-text">{`${formattedIndex} ${title}`}</h3>
                 <p className="text-body-sm text-text-muted text-pretty font-body">{description}</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
