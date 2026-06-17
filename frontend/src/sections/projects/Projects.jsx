@@ -62,7 +62,7 @@ const Projects = () => {
 
     return (
         <Container>
-            <Section id="projects" className="gap-lg">
+            <Section id="projects">
                 <div className="flex items-end justify-between gap-lg">
                     <Heading
                         subtitle="My Work"
@@ -91,7 +91,7 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div className="overflow-hidden p-xl">
+                <div className="overflow-x-clip overflow-y-visible">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={`${currentIndex}-${visibleCount}`}
