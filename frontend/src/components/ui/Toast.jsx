@@ -13,7 +13,7 @@ const Toast = ({ message, variant = 'default' }) => {
 
     const baseClass = `
     ${variants?.[variant] ?? variants.default}
-    flex items-center gap-md py-lg px-xl bg-card-bg border rounded-md shadow-lg font-body fixed top-lg min-w-[80dvw] lg:min-w-fit max-w-[90dvw] left-1/2 -translate-x-1/2 z-100`;
+    flex items-center gap-md py-lg px-xl bg-card-bg border rounded-md shadow-lg font-body fixed top-lg min-w-[80dvw] lg:min-w-fit max-w-[90dvw] left-1/2 -translate-x-1/2 z-9999`;
 
     return (
         <div className={baseClass}>

@@ -26,7 +26,7 @@ const ProjectCard = ({ project }) => {
             <div className="flex flex-1 flex-col gap-lg lg:gap-xl">
                 <div className="flex flex-col gap-sm">
                     <h3 className="text-body-lg font-display">{title}</h3>
-                    <p className="text-text-muted text-pretty leading-7 font-body text-body line-clamp-4">{description}</p>
+                    <p className="text-text-muted text-pretty leading-7 font-body text-body">{description}</p>
                 </div>
 
                 {technologies?.length > 0 && (

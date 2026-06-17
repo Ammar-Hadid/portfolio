@@ -63,19 +63,19 @@ const Projects = () => {
     return (
         <Container>
             <Section id="projects">
-                <div className="flex items-end justify-between gap-lg">
+                <div className="flex flex-col items-start md:flex-row md:items-end justify-between gap-lg">
                     <Heading
                         subtitle="My Work"
                         title="Featured Projects"
                         description="Here are some of the projects I’ve built to solve real problems and improve my development skills."
                     />
 
-                    <div className="hidden md:flex gap-sm">
+                    <div className="flex flex-col gap-md md:flex-row">
                         <button
                             type="button"
                             onClick={handlePrevious}
                             aria-label="Show previous projects"
-                            className="text-primary grid place-items-center w-12 h-12 rounded-full border border-text/10 bg-card-bg hover:border-primary transition-colors cursor-pointer"
+                            className="text-primary hidden md:grid place-items-center w-12 h-12 rounded-full border border-text/15 bg-card-bg hover:border-primary transition-colors cursor-pointer"
                         >
                             <ChevronLeft />
                         </button>
@@ -84,7 +84,7 @@ const Projects = () => {
                             type="button"
                             onClick={handleNext}
                             aria-label="Show next projects"
-                            className="text-primary grid place-items-center w-12 h-12 rounded-full border border-text/10 bg-card-bg hover:border-primary transition-colors cursor-pointer"
+                            className="text-primary grid place-items-center w-3xl h-3xl md:w-12 md:h-12 rounded-full border border-text/15 bg-card-bg hover:border-primary transition-colors cursor-pointer"
                         >
                             <ChevronRight />
                         </button>
@@ -113,7 +113,7 @@ const Projects = () => {
                     </AnimatePresence>
                 </div>
 
-                <div className="flex md:hidden justify-center gap-sm mt-lg">
+                {/* <div className="flex md:hidden justify-center gap-sm mt-lg">
                     <button
                         type="button"
                         onClick={handlePrevious}
@@ -131,7 +131,7 @@ const Projects = () => {
                     >
                         <ChevronRight />
                     </button>
-                </div>
+                </div> */}
             </Section>
         </Container>
     );
