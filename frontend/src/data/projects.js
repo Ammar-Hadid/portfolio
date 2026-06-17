@@ -1,6 +1,7 @@
 import workoutManagerImg from '../assets/images/projects/workout-manager.png';
 import mafiaImg from '../assets/images/projects/mafia.png';
 import studentPlannerImg from '../assets/images/projects/student-planner.png';
+import wordAtlasImg from '../assets/images/projects/word-atlas.jpeg';
 
 export const projects = [
     {
@@ -29,6 +30,20 @@ export const projects = [
         featured: true,
         wip: false,
         createdAt: "2025-07-15",
+    },
+
+    {
+        id: "word-atlas",
+        title: "Word Atlas",
+        description: "Full stack dictionary application built for quickly searching, understanding, and hearing English words with suggestions, word details, examples, forms, phrases, and error handling.",
+        technologies: ["React", "Express", "Merriam-Webster"],
+        image: wordAtlasImg,
+        liveUrl: "https://word-atlas.ammarhadid.com",
+        githubUrl: "https://github.com/Ammar-Hadid/word-atlas",
+        categories: ["fullstack"],
+        featured: true,
+        wip: false,
+        createdAt: "2026-06-10",
     },
 
     {
