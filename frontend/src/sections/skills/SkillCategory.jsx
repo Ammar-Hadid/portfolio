@@ -1,4 +1,4 @@
-import SkillItem from "./skillItem.jsx";
+import SkillItem from "./SkillItem.jsx";
 
 import { motion } from "motion/react";
 import { staggerContainer } from "../../animations/staggerContainer.js";

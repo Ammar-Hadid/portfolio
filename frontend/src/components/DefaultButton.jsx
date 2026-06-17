@@ -11,7 +11,7 @@ const DefaultButton = ({
     const buttonStyles =
         variant === "primary"
             ? "bg-primary border-2 border-primary"
-            : "bg-transparent border-2 border-body";
+            : "bg-transparent border-2 border-text/25";
 
     const commonStyles = `${buttonStyles} text-text text-center px-lg py-md text-body font-body cursor-pointer transition duration-150 ease-in-out hover:scale-[1.01] rounded-xl`;
 

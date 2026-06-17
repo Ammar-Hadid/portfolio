@@ -1,5 +1,5 @@
 import Logo from "../../ui/Logo.jsx";
-import DesktopMenu from "./DekstopMenu.jsx";
+import DesktopMenu from "./DesktopMenu.jsx";
 import MobileMenu from "./MobileMenu.jsx";
 
 const Header = ({ navigationItems, activeSection }) => {

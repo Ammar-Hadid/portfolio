@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import DefaultButton from "../../components/defaultButton.jsx";
+import DefaultButton from "../../components/DefaultButton.jsx";
 import validateForm from "./validators/validateForm.js";
-import { useToast } from "../../contexts/ToastContext.jsx";
+import { useToast } from "../../contexts/useToast.js";
 
 import { motion } from "motion/react";
 import { slideFromRight } from "../../animations/slideFromRight.js";
@@ -92,7 +92,7 @@ const Form = ({ onSubmit }) => {
                     rows={6}
                     value={formData.message}
                     onChange={handleOnChange}
-                    className={`${inputStyles} resize-none appearance-none overflow-x-hidden overflow-y-auto whitespace-pre-wrap wrap-break-words`}
+                    className={`${inputStyles} resize-none appearance-none overflow-x-hidden overflow-y-auto whitespace-pre-wrap break-words`}
                 />
             </div>
 

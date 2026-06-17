@@ -1,6 +1,5 @@
 import {
     FaHtml5,
-    FaCss3Alt,
     FaJs,
     FaReact,
 
@@ -143,4 +142,3 @@ export const skills = [
         ],
     },
 ];
-

@@ -1,7 +1,6 @@
-import { useState, createContext, useContext, useRef } from "react";
-import Toast from "../components/ui/Toast";
-
-const ToastContext = createContext();
+import { useState, useRef } from "react";
+import Toast from "../components/ui/Toast.jsx";
+import { ToastContext } from "./ToastContextValue.js";
 
 export const ToastProvider = ({ children }) => {
     const [toast, setToast] = useState(null);
@@ -25,8 +24,4 @@ export const ToastProvider = ({ children }) => {
             {toast && <Toast message={toast?.message} variant={toast.variant} />}
         </ToastContext.Provider>
     )
-}
-
-export const useToast = () => {
-    return useContext(ToastContext);
 }

@@ -8,11 +8,16 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = ['https://ammarhadid.com', 'https://www.ammarhadid.com'];
+const allowedOrigins = (
+    process.env.CLIENT_URL || 'https://ammarhadid.com,https://www.ammarhadid.com'
+)
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean);
 
 app.use(cors({
     origin(requestedOrigin, callback) {
-        if (allowedOrigins.includes(requestedOrigin)) {
+        if (!requestedOrigin || allowedOrigins.includes(requestedOrigin)) {
             return callback(null, true);
         }
 

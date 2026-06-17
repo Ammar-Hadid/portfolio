@@ -1,13 +1,13 @@
 import { motion } from "motion/react";
 import { staggerContainer } from "../../animations/staggerContainer.js";
 import { fadeup } from "../../animations/fadeup.js";
-import { fadein } from "../../animations/Fadein.js";
+import { fadein } from "../../animations/fadein.js";
 import { slideFromLeft } from "../../animations/slideFromLeft.js";
 
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-import DefaultButton from "../../components/defaultButton";
+import DefaultButton from "../../components/DefaultButton.jsx";
 import heroImage from "../../assets/images/me-hero.png";
 
 
@@ -53,7 +53,7 @@ const Hero = () => {
                     className="flex flex-col gap-md"
                 >
 
-                    <p className="text-text text-body font-body tracking-[0.03em] leading-1xl max-w-[32ch]">I build modern, responsive and scalable web applications with clean code and great user experiences.</p>
+                    <p className="text-text text-body font-body tracking-[0.03em] leading-xl max-w-[32ch]">I build modern, responsive and scalable web applications with clean code and great user experiences.</p>
 
                     <div className="flex flex-col gap-lg">
                         {/* Buttons */}

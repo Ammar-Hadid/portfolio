@@ -1,8 +1,16 @@
-const API_URL = `${import.meta.env.VITE_API_URL}/contact/form`;
+const getContactFormUrl = () => {
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    if (!apiUrl) {
+        throw new Error("Missing VITE_API_URL environment variable.");
+    }
+
+    return `${apiUrl.replace(/\/+$/, "")}/contact/form`;
+}
 
 export const sendContactForm = async (formData) => {
 
-    const res = await fetch(API_URL, {
+    const res = await fetch(getContactFormUrl(), {
         method: "post",
         headers: {
             "Content-Type": "application/json"

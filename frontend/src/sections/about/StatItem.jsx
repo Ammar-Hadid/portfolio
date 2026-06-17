@@ -4,6 +4,11 @@ import { useInView } from "motion/react";
 import AnimatedNumber from "../../components/ui/AnimatedNumber.jsx";
 
 const StatItem = ({ stat, index }) => {
+    const item = useRef(null);
+    const inView = useInView(item, {
+        once: true
+    });
+
     if (!stat) return null;
 
     const { value, suffix, label } = stat;
@@ -11,11 +16,6 @@ const StatItem = ({ stat, index }) => {
     if (!value || !label) return null;
 
     const borderStyles = ['border-b border-r', 'border-b', 'border-r', ''];
-
-    const item = useRef(null);
-    const inView = useInView(item, {
-        once: true
-    });
 
     return (
         <div

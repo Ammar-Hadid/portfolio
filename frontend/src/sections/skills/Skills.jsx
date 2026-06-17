@@ -1,6 +1,3 @@
-import { motion } from "motion/react";
-import { fadeup } from "../../animations/fadeup.js";
-
 import { skills } from "../../data/skills.js";
 
 
@@ -44,7 +41,7 @@ const Skills = () => {
                     </div>
                 </div>
 
-                {codeImg && <img src={codeImg} className="hidden pointer-none lg:block absolute lg:w-[28vw] opacity-55 bottom-0 right-0" />}
+                {codeImg && <img src={codeImg} alt="" className="hidden pointer-events-none lg:block absolute lg:w-[28vw] opacity-55 bottom-0 right-0" />}
             </Section>
         </Container>
     )

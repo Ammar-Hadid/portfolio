@@ -29,7 +29,7 @@ const MobileMenu = ({ navigationItems, activeSection }) => {
                         <Logo className="text-h3" />
 
                         <button type="button" onClick={() => setIsOpen(false)}>
-                            <X className="text-text w-lg h-lg hover:text-red-60 cursor-pointer" />
+                            <X className="text-text w-lg h-lg hover:text-danger cursor-pointer" />
                         </button>
                     </div>
 
@@ -75,7 +75,7 @@ const MobileMenu = ({ navigationItems, activeSection }) => {
                     </div>
 
                     <a
-                        href="/documents/cv.pdg"
+                        href="/documents/cv.pdf"
                         download
                         className="flex items-center justify-between flex-1 text-text rounded-sm bg-transparent border-2 border-primary px-xl py-md text-body font-body">
                         Download CV

@@ -8,7 +8,7 @@ import Form from "./Form.jsx";
 import SocialItem from "./SocialItem.jsx";
 
 import { sendContactForm } from "./api/sendContactForm.js";
-import { useToast } from "../../contexts/ToastContext.jsx";
+import { useToast } from "../../contexts/useToast.js";
 
 import { motion } from "motion/react";
 import { slideFromLeft } from "../../animations/slideFromLeft.js";
