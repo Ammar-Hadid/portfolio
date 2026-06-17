@@ -14,9 +14,9 @@ const ProjectCard = ({ project }) => {
     const urlIconStyles = "w-lg h-lg text-primary";
 
     return (
-        <article className="relative flex h-full min-h-[34rem] md:min-h-0 flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-xl text-text bg-card-bg">
+        <article className="relative flex h-full min-h-136 md:min-h-0 flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-xl text-text bg-card-bg">
             {wip && (
-                <p className="absolute uppercase bg-primary py-sm px-lg left-[-3%] top-[-5%] font-semibold font-display">
+                <p className="absolute z-10 uppercase bg-primary py-sm px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-semibold font-display">
                     WIP
                 </p>
             )}
