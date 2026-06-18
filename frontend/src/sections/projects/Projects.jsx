@@ -62,7 +62,7 @@ const Projects = () => {
 
     return (
         <Container>
-            <Section id="projects">
+            <Section id="projects" className="gap-md md:gap-3xl">
                 <div className="flex flex-col items-start md:flex-row md:items-end justify-between gap-lg">
                     <Heading
                         subtitle="My Work"
@@ -70,23 +70,23 @@ const Projects = () => {
                         description="Here are some of the projects I’ve built to solve real problems and improve my development skills."
                     />
 
-                    <div className="flex flex-col gap-md md:flex-row">
+                    <div className="flex border w-full justify-between md:w-fit md:gap-lg">
                         <button
                             type="button"
                             onClick={handlePrevious}
                             aria-label="Show previous projects"
-                            className="text-primary hidden md:grid place-items-center w-12 h-12 rounded-full border border-text/15 bg-card-bg hover:border-primary transition-colors cursor-pointer"
+                            className="text-primary grid place-items-center w-12 h-12 rounded-xl border border-text/15 bg-card-bg hover:border-primary transition-colors cursor-pointer"
                         >
-                            <ChevronLeft />
+                            <ChevronLeft strokeWidth={3} />
                         </button>
 
                         <button
                             type="button"
                             onClick={handleNext}
                             aria-label="Show next projects"
-                            className="text-primary grid place-items-center w-3xl h-3xl md:w-12 md:h-12 rounded-full border border-text/15 bg-card-bg hover:border-primary transition-colors cursor-pointer"
+                            className="text-primary grid place-items-center w-12 h-12 rounded-xl border border-text/15 bg-card-bg hover:border-primary transition-colors cursor-pointer"
                         >
-                            <ChevronRight />
+                            <ChevronRight strokeWidth={3} />
                         </button>
                     </div>
                 </div>
