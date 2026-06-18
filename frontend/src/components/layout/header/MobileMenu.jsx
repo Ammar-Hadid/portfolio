@@ -75,8 +75,8 @@ const MobileMenu = ({ navigationItems, activeSection }) => {
                     </div>
 
                     <a
-                        href="/documents/cv.pdf"
-                        download
+                        href="/documents/cv-01.pdf"
+                        download="Ammar-Hadid-CV.pdf"
                         className="flex items-center justify-between flex-1 text-text rounded-sm bg-transparent border-2 border-primary px-xl py-md text-body font-body">
                         Download CV
                         <FaDownload className="w-md h-md " />

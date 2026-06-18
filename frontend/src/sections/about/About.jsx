@@ -49,7 +49,7 @@ const About = () => {
                             <ListItem icon={FaHeart} label={"Coding is more than a career. It's what I'd do anyway."} />
                         </ul>
 
-                        <DefaultButton href="/documents/cv.pdf" download >
+                        <DefaultButton href="/documents/cv-01.pdf" download="Ammar-Hadid-CV.pdf" >
                             Download CV
                         </DefaultButton>
                     </motion.div>

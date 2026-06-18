@@ -64,7 +64,7 @@ const Hero = () => {
 
                             <DefaultButton
                                 variant="secondary"
-                                href="/documents/cv.pdf"
+                                href="/documents/cv-01.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
