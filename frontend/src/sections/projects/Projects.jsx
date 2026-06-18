@@ -70,7 +70,7 @@ const Projects = () => {
                         description="Here are some of the projects I’ve built to solve real problems and improve my development skills."
                     />
 
-                    <div className="flex border w-full justify-between md:w-fit md:gap-lg">
+                    <div className="flex w-full justify-between md:w-fit md:gap-lg">
                         <button
                             type="button"
                             onClick={handlePrevious}
