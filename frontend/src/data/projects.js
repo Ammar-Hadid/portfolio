@@ -15,6 +15,7 @@ export const projects = [
         categories: ["fullstack"],
         featured: true,
         wip: true,
+        comingSoon: false,
         createdAt: "2026-05-10",
     },
 
@@ -24,11 +25,12 @@ export const projects = [
         description: "Multiplayer Mafia web game with peer-to-peer rooms, role assignment, voting, timers, and real-time game-state synchronization through an interactive browser interface.",
         technologies: ["JavaScript", "PeerJS"],
         image: mafiaImg,
-        liveUrl: 'https://mafia.ammarhadid.com',
-        githubUrl: 'https://github.com/Ammar-Hadid/Mafia',
+        liveUrl: '',
+        githubUrl: '',
         categories: ["frontend"],
         featured: true,
         wip: false,
+        comingSoon: true,
         createdAt: "2025-07-15",
     },
 
@@ -43,6 +45,7 @@ export const projects = [
         categories: ["fullstack"],
         featured: true,
         wip: false,
+        comingSoon: false,
         createdAt: "2026-06-10",
     },
 
@@ -57,6 +60,7 @@ export const projects = [
         categories: ["frontend"],
         featured: true,
         wip: false,
+        comingSoon: false,
         createdAt: "2026-03-05",
     },
 ];

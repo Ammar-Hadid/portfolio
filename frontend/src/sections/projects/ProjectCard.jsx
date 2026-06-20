@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 const ProjectCard = ({ project }) => {
     if (!project) return null;
 
-    const { id, image, title, description, technologies, wip = false, liveUrl, githubUrl } = project;
+    const { id, image, title, description, technologies, wip = false, liveUrl, githubUrl, comingSoon } = project;
 
     if (!title || !description) {
         return null;
@@ -18,6 +18,12 @@ const ProjectCard = ({ project }) => {
             {wip && (
                 <p className="absolute z-10 uppercase bg-primary py-sm px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-semibold font-display">
                     WIP
+                </p>
+            )}
+
+            {comingSoon && (
+                <p className="absolute z-10 uppercase bg-bg py-sm px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-normal font-display border border-primary">
+                    COMING SOON
                 </p>
             )}
 
