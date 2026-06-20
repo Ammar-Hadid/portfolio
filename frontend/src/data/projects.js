@@ -20,21 +20,6 @@ export const projects = [
     },
 
     {
-        id: "mafia-game",
-        title: "Mafia Game",
-        description: "Multiplayer Mafia web game with peer-to-peer rooms, role assignment, voting, timers, and real-time game-state synchronization through an interactive browser interface.",
-        technologies: ["JavaScript", "PeerJS"],
-        image: mafiaImg,
-        liveUrl: '',
-        githubUrl: '',
-        categories: ["frontend"],
-        featured: true,
-        wip: false,
-        comingSoon: true,
-        createdAt: "2025-07-15",
-    },
-
-    {
         id: "word-atlas",
         title: "Word Atlas",
         description: "Full stack dictionary application built for quickly searching, understanding, and hearing English words with suggestions, word details, examples, forms, phrases, and error handling.",
@@ -47,6 +32,21 @@ export const projects = [
         wip: false,
         comingSoon: false,
         createdAt: "2026-06-10",
+    },
+
+    {
+        id: "mafia-game",
+        title: "Mafia Game",
+        description: "Multiplayer Mafia web game with peer-to-peer rooms, role assignment, voting, timers, and real-time game-state synchronization through an interactive browser interface.",
+        technologies: ["JavaScript", "PeerJS"],
+        image: mafiaImg,
+        liveUrl: '',
+        githubUrl: '',
+        categories: ["frontend"],
+        featured: true,
+        wip: false,
+        comingSoon: true,
+        createdAt: "2025-07-15",
     },
 
     {
