@@ -16,13 +16,13 @@ const ProjectCard = ({ project }) => {
     return (
         <article className="relative flex h-full min-h-136 md:min-h-0 flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-xl text-text bg-card-bg">
             {wip && (
-                <p className="absolute z-10 uppercase bg-primary py-sm px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-semibold font-display">
+                <p className="absolute z-10 uppercase bg-primary py-sm px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-semibold font-display whitespace-nowrap">
                     WIP
                 </p>
             )}
 
             {comingSoon && (
-                <p className="absolute z-10 uppercase bg-bg py-sm px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-normal font-display border border-primary">
+                <p className="absolute z-10 uppercase bg-bg py-sm px-lg md:px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-normal font-display border border-primary whitespace-nowrap">
                     COMING SOON
                 </p>
             )}
