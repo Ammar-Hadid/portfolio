@@ -1,18 +1,18 @@
-import workoutManagerImg from '../assets/images/projects/workout-manager.webp';
+import auctusImg from '../assets/images/projects/auctus.webp';
 import mafiaImg from '../assets/images/projects/mafia.webp';
 import studentPlannerImg from '../assets/images/projects/student-planner.webp';
 import wordAtlasImg from '../assets/images/projects/word-atlas.webp';
 
 export const projects = [
     {
-        id: "workout-manager",
-        title: "Workout Manager",
+        id: "auctus",
+        title: "Auctus",
         type: "Full-stack web app",
-        description: "A full-stack MERN fitness app with secure authentication that lets users plan, log and track their workout routines through a fast, fully responsive interface.",
-        technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind", "JWT Auth"],
-        image: workoutManagerImg,
-        liveUrl: 'https://workout-manager.ammarhadid.com',
-        githubUrl: 'https://github.com/Ammar-Hadid/workout-manager',
+        description: "A full-stack training journal for building programs, logging every set with rest timers and following strength and volume over time, designed to feel just as good on a phone in the gym as on desktop.",
+        technologies: ["Next.js", "React", "Node.js", "Tailwind"],
+        image: auctusImg,
+        liveUrl: 'https://auctus.ammarhadid.com',
+        githubUrl: 'https://github.com/Ammar-Hadid/Auctus',
         wip: true,
         comingSoon: false,
     },
