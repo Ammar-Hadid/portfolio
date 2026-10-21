@@ -6,7 +6,7 @@ import Section from "../../components/layout/Section.jsx";
 import Heading from "../../components/ui/Heading.jsx";
 import Reveal from "../../components/ui/Reveal.jsx";
 import Button from "../../components/ui/Button.jsx";
-import ProjectCard from "./ProjectCard.jsx";
+import ProjectCase from "./ProjectCase.jsx";
 
 const Projects = () => {
     if (!projects.length) return null;
@@ -19,16 +19,9 @@ const Projects = () => {
                 description="A selection of products I've designed and built end-to-end, from the database to the pixels."
             />
 
-            <div className="grid gap-lg md:grid-cols-2">
+            <div className="flex flex-col gap-[clamp(5rem,12vw,9rem)]">
                 {projects.map((project, index) => (
-                    <Reveal
-                        key={project.id}
-                        delay={(index % 2) * .08}
-                        amount={.15}
-                        className={index === 0 ? "md:col-span-2" : ""}
-                    >
-                        <ProjectCard project={project} wide={index === 0} />
-                    </Reveal>
+                    <ProjectCase key={project.id} project={project} index={index} />
                 ))}
             </div>
 
