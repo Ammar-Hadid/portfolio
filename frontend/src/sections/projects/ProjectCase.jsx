@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Check, Copy, KeyRound } from "lucide-react";
 
 import Reveal from "../../components/ui/Reveal.jsx";
 
@@ -18,6 +19,68 @@ const LiveLink = ({ href, title }) => (
         <ArrowUpRight aria-hidden className="size-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
     </a>
 );
+
+const ShowcaseAccess = ({ code, duration, liveUrl, title }) => {
+    const [copied, setCopied] = useState(false);
+
+    useEffect(() => {
+        if (!copied) return;
+        const timeout = setTimeout(() => setCopied(false), 2000);
+        return () => clearTimeout(timeout);
+    }, [copied]);
+
+    const copyCode = async () => {
+        try {
+            await navigator.clipboard.writeText(code);
+            setCopied(true);
+        } catch {
+            setCopied(false);
+        }
+    };
+
+    return (
+        <div className="relative flex flex-col gap-md overflow-hidden rounded-card border border-(--accent)/25 bg-white/[.02] p-lg">
+            <div
+                aria-hidden
+                className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full opacity-15 blur-3xl"
+                style={{ background: "var(--accent)" }}
+            />
+
+            <div className="flex items-center gap-sm font-mono text-xs uppercase tracking-[0.2em] text-(--accent)">
+                <KeyRound aria-hidden className="size-3.5" />
+                Showcase access
+            </div>
+
+            <div className="flex items-center gap-sm rounded-xl border border-white/10 bg-bg/60 p-xs pl-md">
+                <code className="min-w-0 flex-1 break-all font-mono text-[0.8125rem] text-text sm:text-body-sm sm:tracking-wide">{code}</code>
+                <button
+                    type="button"
+                    onClick={copyCode}
+                    aria-label={copied ? "Showcase code copied" : `Copy the ${title} showcase code`}
+                    className="inline-flex shrink-0 cursor-pointer items-center gap-xs rounded-lg bg-white/[.06] px-md py-sm text-xs font-medium text-text transition-colors hover:bg-white/[.12] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--accent)"
+                >
+                    {copied ? <Check aria-hidden className="size-3.5 text-(--accent)" /> : <Copy aria-hidden className="size-3.5" />}
+                    <span className="hidden sm:inline">{copied ? "Copied" : "Copy"}</span>
+                </button>
+            </div>
+
+            <p className="text-body-sm leading-relaxed text-text-muted text-pretty">
+                Enter this code on the{" "}
+                <a
+                    href={liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text underline decoration-white/25 underline-offset-4 transition-colors hover:decoration-(--accent)"
+                >
+                    live demo
+                </a>{" "}
+                to explore {title} with sample data in your own private workspace{duration && <>, open for {duration}</>}.
+            </p>
+
+            <span aria-live="polite" className="sr-only">{copied ? "Showcase code copied to clipboard" : ""}</span>
+        </div>
+    );
+};
 
 const TechStack = ({ stack }) => (
     <div className="flex flex-col gap-md">
@@ -48,7 +111,7 @@ const TechStack = ({ stack }) => (
 );
 
 const ProjectCase = ({ project, index }) => {
-    const { id, title, type, accent, lead, description, stack, image, liveUrl } = project;
+    const { id, title, type, accent, lead, description, stack, image, liveUrl, showcaseCode, showcaseDuration } = project;
 
     if (!title || !lead) return null;
 
@@ -103,9 +166,12 @@ const ProjectCase = ({ project, index }) => {
                 </a>
             </Reveal>
 
-            <div className="grid gap-lg lg:grid-cols-12 lg:gap-2xl">
-                <Reveal className="lg:col-span-5">
+            <div className="grid grid-cols-1 gap-lg lg:grid-cols-12 lg:gap-2xl">
+                <Reveal className="flex min-w-0 flex-col gap-xl lg:col-span-5">
                     <p className="font-display text-h4 font-medium leading-snug text-balance text-text">{lead}</p>
+                    {showcaseCode && (
+                        <ShowcaseAccess code={showcaseCode} duration={showcaseDuration} liveUrl={liveUrl} title={title} />
+                    )}
                 </Reveal>
 
                 {description && (

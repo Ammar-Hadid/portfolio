@@ -22,6 +22,8 @@ export const projects = [
         ],
         image: auctusImg,
         liveUrl: "https://auctus.ammarhadid.com",
+        showcaseCode: "uA6LwOZvJXZp3M9k3oWmgowa",
+        showcaseDuration: "2 hours",
     },
 
     {
@@ -41,6 +43,8 @@ export const projects = [
         ],
         image: wordAtlasImg,
         liveUrl: "https://word-atlas.ammarhadid.com",
+        showcaseCode: null,
+        showcaseDuration: null,
     },
 
     {
@@ -60,5 +64,7 @@ export const projects = [
         ],
         image: mafiaImg,
         liveUrl: "https://mafia.ammarhadid.com",
+        showcaseCode: null,
+        showcaseDuration: null,
     },
 ];
