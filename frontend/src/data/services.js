@@ -1,4 +1,4 @@
-import { AppWindow, Globe, MonitorSmartphone, ServerCog } from "lucide-react";
+import { AppWindow, Globe, MonitorSmartphone, ServerCog, ShoppingCart } from "lucide-react";
 
 export const services = [
     {
@@ -7,6 +7,14 @@ export const services = [
         description: "Full-stack apps built with Next.js, React and Node.js: dashboards, SaaS products, booking systems and internal tools. Secure, fast and ready to scale.",
         tags: ["Next.js", "React", "TypeScript", "Node.js"],
         icon: AppWindow,
+    },
+
+    {
+        id: "webshops",
+        title: "Custom Webshops",
+        description: "Online stores built around your products and brand: fast product pages, a smooth checkout and an easy dashboard to manage products and orders. Designed to turn visitors into paying customers.",
+        tags: ["E-commerce", "Checkout & payments", "Order management"],
+        icon: ShoppingCart,
     },
 
     {

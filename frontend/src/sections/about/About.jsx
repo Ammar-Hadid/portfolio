@@ -47,7 +47,7 @@ const About = () => {
                         <p>
                             I'm Ammar, a full-stack developer with <span className="text-text">5+ years of experience</span> building
                             web products for startups, small businesses and entrepreneurs. I've delivered <span className="text-text">99+ projects
-                                for 30+ clients</span>, from custom React and Next.js applications to WordPress sites that teams can manage on their own.
+                                for 30+ clients</span>, from custom React and Next.js applications and webshops to WordPress sites that teams can manage on their own.
                         </p>
                         <p>
                             I started coding long before it was my job, and that curiosity still drives me. I dig into problems until

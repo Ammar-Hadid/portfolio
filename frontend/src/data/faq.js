@@ -2,7 +2,7 @@ export const faq = [
     {
         id: "projects",
         question: "What kind of projects do you take on?",
-        answer: "Custom web applications, SaaS dashboards, business and WordPress websites, landing pages, and APIs. If you're not sure whether your idea fits, send me a message. I'm happy to talk it through.",
+        answer: "Custom web applications, webshops, SaaS dashboards, business and WordPress websites, landing pages, and APIs. If you're not sure whether your idea fits, send me a message. I'm happy to talk it through.",
     },
 
     {

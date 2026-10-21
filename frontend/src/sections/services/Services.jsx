@@ -15,12 +15,12 @@ const Services = () => {
             <Heading
                 eyebrow="Services"
                 title={<>What I can <span className="text-gradient">build for you</span></>}
-                description="From a high-converting landing page to a complete SaaS product, I handle the full stack so you can focus on running your business."
+                description="From a high-converting landing page or custom webshop to a complete SaaS product, I handle the full stack so you can focus on running your business."
             />
 
-            <div className="grid gap-lg md:grid-cols-2">
+            <div className="grid gap-lg md:grid-cols-2 lg:grid-cols-3">
                 {services.map(({ id, title, description, tags, icon: Icon }, index) => (
-                    <Reveal key={id} delay={index * .08} className="h-full">
+                    <Reveal key={id} delay={(index % 3) * .08} className={`h-full ${index === 0 ? "md:col-span-2" : ""}`}>
                         <SpotlightCard className="group flex h-full flex-col gap-lg p-xl">
                             <div className="flex items-start justify-between">
                                 <div className="grid size-12 place-items-center rounded-2xl bg-primary/15 text-primary-light ring-1 ring-primary/30 shadow-[0_0_30px_-6px_rgba(113,70,247,.7)]">

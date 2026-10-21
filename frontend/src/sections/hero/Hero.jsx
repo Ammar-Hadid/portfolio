@@ -50,7 +50,7 @@ const Hero = () => {
                         >
                             Hi, I'm <span className="font-medium text-text">Ammar Hadid</span>, a full-stack developer specializing in{' '}
                             <span className="text-text">React, Next.js, TypeScript and WordPress</span>.
-                            I turn ideas into polished, production-ready products that are delivered on time and built to scale.
+                            From custom web apps to webshops, I turn ideas into polished, production-ready products that are delivered on time and built to scale.
                         </motion.p>
 
                         <motion.div variants={fadeup} className="flex w-full flex-col gap-md sm:w-auto sm:flex-row">
