@@ -21,21 +21,24 @@ const Testimonials = () => {
             />
 
             <div className="grid gap-lg md:grid-cols-2 lg:grid-cols-3">
-                {testimonials.map(({ id, quote, name, role, rating }, index) => (
+                {testimonials.map(({ id, title, quote, name, role, rating }, index) => (
                     <Reveal key={id} delay={(index % 3) * .08} className="h-full">
                         <SpotlightCard as="figure" className="flex h-full flex-col gap-lg p-xl">
-                            <div className="flex items-center justify-between">
-                                {rating ? (
-                                    <div className="flex gap-2xs text-[#FBBF24]" role="img" aria-label={`${rating} out of 5 stars`}>
-                                        {Array.from({ length: rating }, (_, i) => <Star key={i} className="size-4 fill-current" />)}
-                                    </div>
-                                ) : <span />}
-                                <Quote aria-hidden className="size-6 text-primary/60" />
+                            <div className="flex items-center justify-between gap-md">
+                                <div className="flex flex-col gap-sm">
+                                    {title && <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary-light">{title}</span>}
+                                    {rating > 0 && (
+                                        <div className="flex gap-2xs text-[#FBBF24]" role="img" aria-label={`${rating} out of 5 stars`}>
+                                            {Array.from({ length: rating }, (_, i) => <Star key={i} className="size-4 fill-current" />)}
+                                        </div>
+                                    )}
+                                </div>
+                                <Quote aria-hidden className="size-6 shrink-0 text-primary/60" />
                             </div>
 
-                            <blockquote className="text-body leading-relaxed text-text text-pretty">"{quote}"</blockquote>
+                            <blockquote className="text-body-lg leading-relaxed text-text text-pretty">"{quote}"</blockquote>
 
-                            <figcaption className="mt-auto flex items-center gap-md border-t border-white/[.08] pt-lg">
+                            {name && <figcaption className="mt-auto flex items-center gap-md border-t border-white/[.08] pt-lg">
                                 <span className="grid size-10 place-items-center rounded-full bg-primary/20 font-display text-sm font-semibold text-primary-light ring-1 ring-primary/30">
                                     {getInitials(name)}
                                 </span>
@@ -43,7 +46,7 @@ const Testimonials = () => {
                                     <span className="font-medium text-text">{name}</span>
                                     {role && <span className="text-body-sm text-text-muted">{role}</span>}
                                 </span>
-                            </figcaption>
+                            </figcaption>}
                         </SpotlightCard>
                     </Reveal>
                 ))}
