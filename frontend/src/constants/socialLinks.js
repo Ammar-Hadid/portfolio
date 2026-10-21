@@ -6,14 +6,14 @@ const SOCIAL_LINKS = [
         id: 'github',
         href: "https://github.com/Ammar-Hadid",
         label: "GitHub profile",
-        placeHolder: 'https://github.com',
+        placeHolder: 'github.com/Ammar-Hadid',
         icon: FaGithub,
     },
     {
         id: 'linkedin',
         href: "https://www.linkedin.com/in/ammar-hadid-29326824b/",
-        label: "Linkedin profile",
-        placeHolder: 'https://www.linkedin.com',
+        label: "LinkedIn profile",
+        placeHolder: 'linkedin.com/in/ammar-hadid',
         icon: FaLinkedin,
     },
     {

@@ -1,31 +1,33 @@
+import { ArrowUpRight } from "lucide-react";
+
 const SocialItem = ({ social }) => {
     if (!social) return null;
 
-    const { href, label, icon, placeHolder } = social;
+    const { href, label, icon: Icon, placeHolder } = social;
 
-    if (!href || !label || !icon) return null;
+    if (!href || !label || !Icon) return null;
 
-    const Icon = icon;
+    const isExternal = href.startsWith("http");
 
     return (
         <a
             href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${label} link`}
-            className="flex items-center gap-md rounded-pill lg:p-sm lg:pr-xl transition-colors duration-300 ease-in-out hover:bg-primary-200"
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            className="group flex items-center gap-md rounded-2xl p-sm -mx-sm transition-colors hover:bg-white/[.04]"
         >
-            <div className="rounded-full p-md bg-card-bg">
-                <Icon className="text-primary w-lg h-lg" />
-            </div>
+            <span className="glass grid size-11 place-items-center rounded-xl">
+                <Icon className="size-5 text-primary-light" />
+            </span>
 
-            <div className="flex flex-col">
-                <h4 className="font-display text-body text-text">{label}</h4>
-                <p className="font-body text-body-sm text-text-muted ">{placeHolder}</p>
-            </div>
+            <span className="flex flex-col">
+                <span className="text-body-sm font-medium text-text">{label}</span>
+                <span className="text-body-sm text-text-muted">{placeHolder}</span>
+            </span>
+
+            <ArrowUpRight className="ml-auto size-4 text-text-muted opacity-0 transition-all group-hover:opacity-100" />
         </a>
     )
 }
 
 export default SocialItem;
-

@@ -1,6 +1,6 @@
-const Container = ({ children }) => {
+const Container = ({ children, className = "" }) => {
     return (
-        <div className="px-2xl py-3xl">
+        <div className={`mx-auto w-full max-w-[1200px] px-lg md:px-xl ${className}`}>
             {children}
         </div>
     )
