@@ -1,29 +1,22 @@
 export const stats = [
     {
-        id: "projects",
-        value: 15,
-        suffix: "+",
-        label: "Projects Completed",
-    },
-
-    {
         id: "years",
-        value: 3,
+        value: 5,
         suffix: "+",
-        label: "Years Building",
+        label: "Years of experience",
     },
 
     {
         id: "clients",
-        value: 5,
-        suffix: "",
-        label: "Happy Clients",
+        value: 30,
+        suffix: "+",
+        label: "Happy clients",
     },
 
     {
-        id: "commits",
-        value: 500,
+        id: "projects",
+        value: 99,
         suffix: "+",
-        label: "Commits on GitHub",
+        label: "Projects delivered",
     },
 ];

@@ -1,82 +1,99 @@
-import { Radio } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
-const ProjectCard = ({ project }) => {
+import SpotlightCard from "../../components/ui/SpotlightCard.jsx";
+
+const StatusBadge = ({ wip, comingSoon }) => {
+    if (!wip && !comingSoon) return null;
+
+    const styles = comingSoon
+        ? "text-text"
+        : "text-primary-light";
+
+    return (
+        <span className={`glass absolute left-md top-md z-10 inline-flex items-center gap-sm rounded-pill px-md py-xs font-mono text-xs uppercase tracking-widest ${styles}`}>
+            <span className={`size-1.5 rounded-full ${comingSoon ? 'bg-text' : 'bg-primary-light animate-ping'}`} />
+            {comingSoon ? 'Coming soon' : 'In active development'}
+        </span>
+    );
+};
+
+const ProjectCard = ({ project, wide = false }) => {
     if (!project) return null;
 
-    const { id, image, title, description, technologies, wip = false, liveUrl, githubUrl, comingSoon } = project;
+    const { image, title, type, description, technologies, wip = false, liveUrl, githubUrl, comingSoon } = project;
 
     if (!title || !description) {
         return null;
     }
 
-    const urlStyles = "flex gap-md text-sm items-center hover:text-primary";
-    const urlIconStyles = "w-lg h-lg text-primary";
+    const layout = wide ? "lg:flex-row" : "";
+    const imageLayout = wide ? "lg:w-[56%] lg:border-b-0 lg:border-r" : "";
 
     return (
-        <article className="relative flex h-full min-h-136 md:min-h-0 flex-col gap-lg p-lg lg:pl-xl border border-text/10 rounded-xl text-text bg-card-bg">
-            {wip && (
-                <p className="absolute z-10 uppercase bg-primary py-sm px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-semibold font-display whitespace-nowrap">
-                    WIP
-                </p>
-            )}
+        <SpotlightCard as="article" className={`group flex h-full flex-col overflow-hidden ${layout}`}>
+            <div className={`relative shrink-0 overflow-hidden border-b border-white/[.08] bg-card-bg ${imageLayout}`}>
+                <StatusBadge wip={wip} comingSoon={comingSoon} />
+                <img
+                    src={image}
+                    alt={`${title} screenshot`}
+                    loading="lazy"
+                    className={`aspect-[16/10] size-full object-cover object-top transition-transform ${wide ? "lg:aspect-auto lg:object-left-top" : ""} duration-700 ease-out group-hover:scale-[1.04]`}
+                />
+                <div aria-hidden className="absolute inset-0 bg-linear-to-t from-bg/40 to-transparent" />
+            </div>
 
-            {comingSoon && (
-                <p className="absolute z-10 uppercase bg-bg py-sm px-lg md:px-2xl left-1/2 -translate-x-1/2 -top-sm -translate-y-1/2 font-normal font-display border border-primary whitespace-nowrap">
-                    COMING SOON
-                </p>
-            )}
-
-            <img src={image} alt={id} className="w-full aspect-16/10 object-cover" />
-
-            <div className="flex flex-1 flex-col gap-lg lg:gap-xl">
+            <div className={`flex flex-1 flex-col gap-lg p-xl ${wide ? 'lg:justify-center lg:p-2xl' : ''}`}>
                 <div className="flex flex-col gap-sm">
-                    <h3 className="text-body-lg font-display">{title}</h3>
-                    <p className="text-text-muted text-pretty leading-7 font-body text-body">{description}</p>
+                    {type && <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary-light">{type}</span>}
+                    <h3 className={`font-display font-semibold text-text ${wide ? 'text-h3' : 'text-h4'}`}>{title}</h3>
+                    <p className="text-body leading-relaxed text-text-muted text-pretty">{description}</p>
                 </div>
 
                 {technologies?.length > 0 && (
-                    <div className="flex gap-sm flex-wrap lg:flex-nowrap">
-                        {technologies.map((technology, index) => (
-                            <p
-                                key={`${technology}-${index}`}
-                                className="p-sm lg:p-md text-body-sm rounded-pill bg-card-bg border border-text/5 font-body"
+                    <ul className="flex flex-wrap gap-sm">
+                        {technologies.map(technology => (
+                            <li
+                                key={technology}
+                                className="rounded-pill border border-white/10 bg-white/[.03] px-md py-xs text-xs text-text-muted"
                             >
                                 {technology}
-                            </p>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 )}
 
-                <div className="mt-auto flex gap-lg font-body flex-wrap">
-                    {liveUrl && (
-                        <a
-                            href={liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${title} live link`}
-                            className={urlStyles}
-                        >
-                            <Radio className={urlIconStyles} />
-                            Live demo
-                        </a>
-                    )}
+                {(liveUrl || githubUrl) && (
+                    <div className="mt-auto flex flex-wrap items-center gap-lg pt-sm text-body-sm">
+                        {liveUrl && (
+                            <a
+                                href={liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`${title} live demo`}
+                                className="group/link inline-flex items-center gap-xs font-medium text-text hover:text-primary-light transition-colors"
+                            >
+                                Live demo
+                                <ArrowUpRight className="size-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                            </a>
+                        )}
 
-                    {githubUrl && (
-                        <a
-                            href={githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${title} gitHub link`}
-                            className={urlStyles}
-                        >
-                            <FaGithub className={urlIconStyles} />
-                            GitHub
-                        </a>
-                    )}
-                </div>
+                        {githubUrl && (
+                            <a
+                                href={githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`${title} source code on GitHub`}
+                                className="inline-flex items-center gap-sm text-text-muted hover:text-text transition-colors"
+                            >
+                                <FaGithub className="size-4" />
+                                Source code
+                            </a>
+                        )}
+                    </div>
+                )}
             </div>
-        </article>
+        </SpotlightCard>
     );
 };
 

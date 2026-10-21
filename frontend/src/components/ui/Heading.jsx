@@ -1,21 +1,21 @@
-const Heading = ({ subtitle, title, description = '' }) => {
+import Reveal from "./Reveal.jsx";
+import Eyebrow from "./Eyebrow.jsx";
 
-    if (!subtitle || !title) {
+const Heading = ({ eyebrow, title, description = '', align = 'left' }) => {
+    if (!eyebrow || !title) {
         return null;
     }
 
+    const alignStyles = align === 'center' ? 'items-center text-center mx-auto' : 'items-start';
+
     return (
-        <div className="flex flex-col gap-sm">
+        <Reveal className={`flex flex-col gap-md max-w-[760px] ${alignStyles}`}>
+            <Eyebrow>{eyebrow}</Eyebrow>
 
-            <div className="flex gap-md items-center">
-                <div className="w-md lg:w-lg h-md lg:h-lg bg-primary"></div>
-                <div className="text-primary uppercase text-h5">{subtitle}</div>
-            </div>
+            <h2 className="text-h2 font-display font-semibold tracking-tight leading-[1.1] text-text text-balance">{title}</h2>
 
-            <h2 className="text-h2 font-display text-text capitalize">{title}</h2>
-
-            {description && <p className="text-text-muted font-body text-body-lg text-pretty">{description}</p>}
-        </div>
+            {description && <p className="text-text-muted font-body text-body-lg text-pretty leading-relaxed">{description}</p>}
+        </Reveal>
     )
 }
 

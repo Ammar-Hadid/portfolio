@@ -1,11 +1,10 @@
 import { useState } from "react";
+import { Loader2, Send } from "lucide-react";
 
-import DefaultButton from "../../components/DefaultButton.jsx";
+import Button from "../../components/ui/Button.jsx";
+import Reveal from "../../components/ui/Reveal.jsx";
 import validateForm from "./validators/validateForm.js";
 import { useToast } from "../../contexts/useToast.js";
-
-import { motion } from "motion/react";
-import { slideFromRight } from "../../animations/slideFromRight.js";
 
 const INITIAL_FORM_DATA = {
     name: '',
@@ -15,6 +14,7 @@ const INITIAL_FORM_DATA = {
 
 const Form = ({ onSubmit }) => {
     const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const { showToast } = useToast();
 
     const handleOnChange = (e) => {
@@ -38,68 +38,75 @@ const Form = ({ onSubmit }) => {
             return
         }
 
+        setIsSubmitting(true);
         const success = await onSubmit(formData);
+        setIsSubmitting(false);
 
         if (success) {
             setFormData(INITIAL_FORM_DATA);
         }
     }
 
-    const inputStyles = 'block w-full min-w-0 max-w-full box-border font-body text-text bg-card-bg py-md px-lg border border-text/10 rounded-md text-body outline-0 focus:border-text/25 placeholder:font-body placeholder:text-text-muted';
+    const labelStyles = 'flex flex-col gap-sm text-body-sm font-medium text-text';
+    const inputStyles = 'block w-full min-w-0 rounded-xl border border-white/10 bg-bg/60 px-lg py-md font-body text-body font-normal text-text outline-none transition-[border-color,box-shadow] placeholder:text-text/35 focus:border-primary focus:shadow-[0_0_0_4px_rgba(113,70,247,.2)]';
 
     return (
-        <motion.form
-            variants={slideFromRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-                once: true,
-                amount: .2
-            }}
+        <Reveal delay={.1}>
+            <form
+                noValidate
+                onSubmit={handleOnSubmit}
+                className="glass flex flex-col gap-lg rounded-card p-lg sm:p-xl"
+            >
+                <div className="grid gap-lg sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    <label className={labelStyles}>
+                        Name
+                        <input
+                            type="text"
+                            placeholder="Jane Smith"
+                            name="name"
+                            autoComplete="name"
+                            value={formData.name}
+                            onChange={handleOnChange}
+                            className={inputStyles}
+                        />
+                    </label>
 
-            noValidate
-            onSubmit={handleOnSubmit}
-            className="bg-card-bg w-full min-w-0 flex flex-col gap-lg border border-text/15 rounded-2xl p-xl lg:w-auto lg:min-w-[30dvw]"
-        >
-            <h3 className="font-body text-h3 uppercase">
-                <span className="text-text">Say </span>
-                <span className="text-primary">Hello</span>
-            </h3>
+                    <label className={labelStyles}>
+                        Email
+                        <input
+                            type="email"
+                            placeholder="jane@company.com"
+                            name="email"
+                            autoComplete="email"
+                            value={formData.email}
+                            onChange={handleOnChange}
+                            className={inputStyles}
+                        />
+                    </label>
+                </div>
 
-            <div className="flex flex-col gap-md">
-                <input
-                    type="text"
-                    placeholder="Name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleOnChange}
-                    className={`${inputStyles}`}
-                />
+                <label className={labelStyles}>
+                    Project details
+                    <textarea
+                        name="message"
+                        placeholder="What are you building, what's your timeline, and roughly what's your budget?"
+                        rows={6}
+                        value={formData.message}
+                        onChange={handleOnChange}
+                        className={`${inputStyles} textarea-no-x-scroll resize-none`}
+                    />
+                </label>
 
-                <input
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleOnChange}
-                    className={`${inputStyles}`}
-                />
+                <Button type="submit" disabled={isSubmitting} icon={isSubmitting ? undefined : Send} className="w-full">
+                    {isSubmitting && <Loader2 className="size-4 animate-spin" />}
+                    {isSubmitting ? 'Sending…' : 'Send message'}
+                </Button>
 
-                <textarea
-                    name="message"
-                    placeholder="Message"
-                    cols={1}
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleOnChange}
-                    className={`${inputStyles} resize-none appearance-none overflow-x-hidden overflow-y-auto whitespace-pre-wrap break-words`}
-                />
-            </div>
-
-            <DefaultButton type="submit" >
-                Send
-            </DefaultButton>
-        </motion.form>
+                <p className="text-center text-xs text-text-muted">
+                    No spam, no commitment. Your details stay private.
+                </p>
+            </form>
+        </Reveal>
     )
 }
 

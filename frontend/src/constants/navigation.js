@@ -1,28 +1,28 @@
 import {
-    House,
-    User,
+    Layers,
     Folder,
-    Code,
-    Mail
+    Workflow,
+    User,
+    MessageCircleQuestion,
 } from "lucide-react";
 
 const NAVIGATION_ITEMS = [
     {
-        label: 'Home',
-        link: '#hero',
-        icon: House,
+        label: 'Services',
+        link: '#services',
+        icon: Layers,
     },
 
     {
-        label: 'Skills',
-        link: '#skills',
-        icon: Code,
-    },
-
-    {
-        label: 'Projects',
-        link: '#projects',
+        label: 'Work',
+        link: '#work',
         icon: Folder,
+    },
+
+    {
+        label: 'Process',
+        link: '#process',
+        icon: Workflow,
     },
 
     {
@@ -32,11 +32,10 @@ const NAVIGATION_ITEMS = [
     },
 
     {
-        label: 'Contact',
-        link: '#contact',
-        icon: Mail,
+        label: 'FAQ',
+        link: '#faq',
+        icon: MessageCircleQuestion,
     },
-
 ]
 
 export default NAVIGATION_ITEMS;

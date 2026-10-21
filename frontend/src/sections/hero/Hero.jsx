@@ -1,119 +1,84 @@
 import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+
 import { staggerContainer } from "../../animations/staggerContainer.js";
 import { fadeup } from "../../animations/fadeup.js";
-import { fadein } from "../../animations/fadein.js";
-import { slideFromLeft } from "../../animations/slideFromLeft.js";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import Container from "../../components/layout/Container.jsx";
+import Button from "../../components/ui/Button.jsx";
+import AnimatedNumber from "../../components/ui/AnimatedNumber.jsx";
+import HeroVisual from "./HeroVisual.jsx";
+import TechMarquee from "./TechMarquee.jsx";
 
-import DefaultButton from "../../components/DefaultButton.jsx";
-import heroImage from "../../assets/images/me-hero.png";
+import { stats } from "../../data/stats.js";
 
 
 const Hero = () => {
     return (
-        <section className="flex flex-col md:flex-row lg:flex-row gap-xl lg:gap-0 w-full justify-between items-center bg-bg" id="hero">
-            {/* Content */}
-            <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className="flex flex-col items-start gap-lg md:pl-xl lg:pl-3xl"
-            >
-
-                {/* Introduction */}
-                <motion.div
-                    variants={staggerContainer}
-                    className="flex flex-col justify-start gap-md lg:gap-0">
-
-                    <div className="flex flex-col justify-start text-text gap-md lg:gap-0">
-                        <motion.p
+        <section id="hero" className="relative pt-[clamp(7.5rem,15vw,10.5rem)]">
+            <Container>
+                <div className="grid items-center gap-3xl lg:grid-cols-[1.2fr_.8fr] lg:gap-2xl">
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                        className="flex flex-col items-start gap-xl"
+                    >
+                        <motion.a
                             variants={fadeup}
-                            className="text-h5 font-body m-0 p-0 -mb-md">
-                            Hi, I'm
-                        </motion.p>
+                            href="#contact"
+                            className="glass inline-flex items-center gap-sm rounded-pill py-xs pl-sm pr-md text-body-sm text-text-muted transition-colors hover:text-text"
+                        >
+                            <span className="relative flex size-2.5">
+                                <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70" />
+                                <span className="relative inline-flex size-2.5 rounded-full bg-success" />
+                            </span>
+                            Available for new projects
+                        </motion.a>
+
                         <motion.h1
                             variants={fadeup}
-                            className="text-hero font-bold font-display m-0 p-0">Ammar
+                            className="font-display text-hero font-semibold leading-[1.04] tracking-tight text-balance"
+                        >
+                            I build fast, scalable web apps that{' '}
+                            <span className="text-gradient">grow your business.</span>
                         </motion.h1>
-                    </div>
 
-                    <motion.div
-                        variants={fadeup}
-                        className="text-h5 text-primary font-medium font-display -mt-md p-0">
-                        Full Stack Developer
+                        <motion.p
+                            variants={fadeup}
+                            className="max-w-[54ch] text-body-lg leading-relaxed text-text-muted text-pretty"
+                        >
+                            Hi, I'm <span className="font-medium text-text">Ammar Hadid</span>, a full-stack developer specializing in{' '}
+                            <span className="text-text">React, Next.js, TypeScript and WordPress</span>.
+                            I turn ideas into polished, production-ready products that are delivered on time and built to scale.
+                        </motion.p>
+
+                        <motion.div variants={fadeup} className="flex w-full flex-col gap-md sm:w-auto sm:flex-row">
+                            <Button href="#contact" icon={ArrowRight}>Start your project</Button>
+                            <Button href="#work" variant="ghost">View my work</Button>
+                        </motion.div>
+
+                        <motion.dl
+                            variants={fadeup}
+                            className="mt-sm grid w-full max-w-[520px] grid-cols-3 gap-lg border-t border-white/10 pt-xl"
+                        >
+                            {stats.map(stat => (
+                                <div key={stat.id} className="flex flex-col-reverse justify-end gap-xs">
+                                    <dt className="text-body-sm text-text-muted">{stat.label}</dt>
+                                    <dd className="font-display text-h3 font-semibold leading-none text-text">
+                                        <AnimatedNumber value={stat.value} inView />
+                                        <span className="text-primary-light">{stat.suffix}</span>
+                                    </dd>
+                                </div>
+                            ))}
+                        </motion.dl>
                     </motion.div>
-                </motion.div>
 
-                {/* Text & cta */}
-                <motion.div
-                    variants={slideFromLeft}
-                    transition={{ delay: .6 }}
-                    className="flex flex-col gap-md"
-                >
+                    <HeroVisual />
+                </div>
+            </Container>
 
-                    <p className="text-text text-body font-body tracking-[0.03em] leading-xl max-w-[32ch]">I build modern, responsive and scalable web applications with clean code and great user experiences.</p>
-
-                    <div className="flex flex-col gap-lg">
-                        {/* Buttons */}
-                        <div className="flex gap-md">
-                            <DefaultButton href={'#projects'} >
-                                Explore My Work
-                            </DefaultButton>
-
-                            <DefaultButton
-                                variant="secondary"
-                                href="/documents/cv-01.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                View CV
-                            </DefaultButton>
-                        </div>
-
-                        {/* Icons */}
-                        <div className="flex gap-md">
-                            <a
-                                href="https://github.com/Ammar-Hadid"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="GitHub profile"
-                            >
-                                <FaGithub className="text-text-muted hover:text-text text-body-lg" />
-                            </a>
-
-                            <a
-                                href="https://www.linkedin.com/in/ammar-hadid-29326824b/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Linkedin profile"
-                            >
-                                <FaLinkedin className="text-text-muted hover:text-text text-body-lg" />
-                            </a>
-
-                            <motion.a
-                                href="mailto:hello@ammarhadid.com?subject=Portfolio Inquiry"
-                                aria-label="Send me an email"
-                            >
-                                <MdEmail className="text-text-muted hover:text-text text-body-lg" />
-                            </motion.a>
-
-                        </div>
-                    </div>
-                </motion.div>
-            </motion.div>
-
-            {/* Image */}
-            <motion.img
-                variants={fadein}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: .5, delay: .1 }}
-
-                src={heroImage}
-                alt="Ammar"
-                className="hero-img" />
+            <TechMarquee />
         </section>
     )
 }
